@@ -1,4 +1,4 @@
-# Docker Image for Tensorflow latest with latest CUDA 
+# Docker Image for Ubuntu 20.04 with CUDA Toolkit and Tensorflow 2.10 
 Has most basic dependencies and more can be added by modifying the [Dockerfile](Dockerfile)
 
 - To run the docker container:
