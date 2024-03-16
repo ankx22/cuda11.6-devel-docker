@@ -3,6 +3,9 @@ FROM nvidia/cuda:11.6.1-cudnn8-devel-ubuntu20.04
 # Avoid interactive dialogues from apt-get install and tzdata
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
+
+COPY requirements.txt /tmp/requirements.txt
+
 # apt-get update && 
 RUN apt-get update && apt-get install -y \
     vim \
@@ -34,16 +37,11 @@ RUN apt-get update && apt-get install -y \
 RUN python3 -m pip install --upgrade pip
 
 # Install Python packages
-RUN pip install remotezip tqdm opencv-python einops matplotlib numpy seaborn tensorflow-gpu==2.10 jupyterlab notebook
+# RUN pip install remotezip tqdm opencv-python einops matplotlib numpy seaborn tensorflow-gpu==2.10 scikit-learn
+RUN pip install -r /tmp/requirements.txt
 
 # Add alias to .bashrc
 RUN echo "alias lt='ls -lrth'" >> ~/.bashrc
 
 # Set the working directory (optional)
 WORKDIR /data
-
-# Expose Jupyter port
-EXPOSE 8888
-
-# Start Jupyter Notebook (You can customize this command based on your needs)
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root", "--NotebookApp.token=''", "--NotebookApp.password=''"]
