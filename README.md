@@ -9,7 +9,7 @@ Has most basic dependencies and more can be added by modifying the [Dockerfile](
     ```
   - Once the download and setup of the image is complete just run the docker image by
     ```bash
-    docker run -it --rm -p 8888:8888 --gpus all -v <"/actual/path/to/data">:/data --name name_of_the_container -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix cuda11 bash
+    docker run -it --rm --gpus all -v <"/actual/path/to/data">:/data --name name_of_the_container -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix cuda11 bash
     ```
   - To access the bash on a different terminal window run
     ```bash
