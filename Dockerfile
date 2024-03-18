@@ -8,6 +8,7 @@ COPY requirements.txt /tmp/requirements.txt
 
 # apt-get update && 
 RUN apt-get update && apt-get install -y \
+    graphviz \
     vim \
     libgl1-mesa-glx \
     libcairo2 \

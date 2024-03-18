@@ -7,3 +7,4 @@ numpy
 seaborn
 tensorflow-gpu==2.10
 scikit-learn
+pydot
